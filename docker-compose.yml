@@ -1,0 +1,18 @@
+version: '3'
+services:
+
+  redis:
+    image: redis:2.8.23
+    restart: on-failure:3
+    expose:
+      - 6379
+#    ports:
+#      - "6379:6379"
+
+  app:
+    build: .
+    command: bash run_app.sh
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
