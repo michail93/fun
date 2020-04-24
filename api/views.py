@@ -6,9 +6,9 @@ from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.serializers import ValidationError
 
-from .serializers import VisitedLinksSerializer
-
 import redis
+
+from .serializers import VisitedLinksSerializer
 
 
 redis_cli = redis.Redis(settings.REDIS_HOST, settings.REDIS_PORT, charset="utf-8", decode_responses=True)
